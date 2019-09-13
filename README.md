@@ -33,7 +33,7 @@ You primary tasks are:
 * Define and document the APIs for the operations
 * Document the schema for the actor and movie entities. You may use the provided SQL files to 
   populate your database.
-* Implement a simple service that supports the APIs mentioned above (_customer_ and _admin_)
+* Implement a web service that supports the APIs mentioned above (_customer_ and _admin_)
 
 Also note:
 
@@ -94,9 +94,7 @@ Result status: `200`
   will likely be ignored, so please do submit only after you are ready
 * Do use any popular, modern language and technology stack of your choice. 
 * Do ensure your final submission includes everything so that the project can be 
-  **built, deployed, runnable and accessible locally**.
-  As a completely optional stretch goal, it can be accessible on a public cloud (using
-  their free tier for instance). Absence of this will not adversely affect your candidacy
+  **built, deployed, and run either locally or on a public cloud**.
 * Do write self-documenting code
 * Do include a `SOLUTION.md` with the following:
   * what major design decisions did you have to make
@@ -116,7 +114,7 @@ Result status: `200`
 
 
 ### Timing
-We expect this project to take approximately 2-6 hours of an experienced engineer's time.
+We expect this project to take approximately 3-6 hours of an experienced engineer's time.
 However, everyone is different so please treat these numbers as suggestions. If you find
 yourself blocked, or stuck spending inordinate amounts of time in a specific area, it might
 be best to reach out to us -- we want to be respectful of your time and it is our job to 
