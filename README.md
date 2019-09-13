@@ -3,15 +3,15 @@ Mason America hiring challenge for backend engineering positions
 
 ## Problem Statement
 
-You are attempting to build FaveFlix, a service that allows users to search for movie information
-in a variety of ways, with a future vision of allowing users to design their own queries and
-pinpoint info they are specifically interested in.
+You are joining a crack team of engineers at FaveFlix, a service that wants to allow users to search
+for movie information in a variety of ways. You're in charge of building the first version of this
+budding service, and you've been handed the following "specification" for the backend: 
 
 ### Customer API
 The service is expected to support the following operations:
 
-1. MOVSRCH: Search for movies by three different criteria and return all matching results
-2. ACTSRCH: Search for actors by three different criteria and return all matching results
+1. MOVSRCH: Search for movies by up to three different criteria and return all matching results
+2. ACTSRCH: Search for actors by up to three different criteria and return all matching results
 3. MAGICSRCH: One "interesting" search that is going to be your secret sauce. This is an 
    opportunity for you to design a specific query that you personally find interesting. 
    Examples: _"Search for the movie that has the most actors"_, or 
@@ -20,21 +20,23 @@ The service is expected to support the following operations:
 ### Admin API
 The service also is expected to support the following "administrative" APIs:
 
-* create a new movie entry
-* create a new actor entry
+1. NEWMOVIE: create a new movie entry
+2. NEWACTOR: create a new actor entry
 
 ## Your Mission
+You are to start with this early version of a rudimentary specification with various details
+left out, fill in the blanks (such as parameters, return values, etc.), and build out the
+first cut of the service. 
 
-You are to use the provided bootstrap data containing movie and actor information to load up
-you backing database which you are to then expose via APIs. 
+You primary tasks are:
 
-In this repository you'll find two files, `actors.sql` and `movies.sql`. They comprise titles
-and actors from Internet Movie Database (IMDB). For simplicity's sake, it is not fully normalized.
-
-* Write a simple service that supports the APIs mentioned above (_customer_ and _admin_)
-* Define the APIs for the operations
+* Define and document the APIs for the operations
 * Document the schema for the actor and movie entities. You may use the provided SQL files to 
   populate your database.
+* Implement a simple service that supports the APIs mentioned above (_customer_ and _admin_)
+
+Also note:
+
 * Your database must persist even if your service is cycled
 * Your service must accessible via a RESTful interface and testable using `cURL`
 * You may ignore authentication. Requests from a customer `C` should always include an
@@ -42,17 +44,27 @@ and actors from Internet Movie Database (IMDB). For simplicity's sake, it is not
   an `X-Identifier` header with a value set to `"ADMIN"`
 * Responses are expected in JSON
 
+You are to use the provided bootstrap data containing movie and actor information to load up
+you backing database which you are to then expose to customers via APIs. In this repository you'll
+find two files, `actors.sql` and `movies.sql`. They comprise titles and actors from Internet Movie
+Database (IMDB). For simplicity's sake, it is not fully normalized.
+
+### Database Choice
+
+For this exercise, you may use any database of your choice. Please ensure that the installation
+instructions for the database component are included (if it is a link to documentation elsewhere
+that is also acceptable). We recommend either sqlite or PostreSQL for their simplicity.
+
+Note that the SQL files included have been tested with SQLite.
 
 ## Examples
 
 You are to define the APIs for the various operation. Here are some examples of how some of the operations
-might be implemented.
+might be implemented. Note that paths and parameters below are only suggestions.
 
-### Customer Operations
+### MOVSRCH Operation
 
-**FIND**
-
-> GET /smashes?q=seattle-warehouse-1
+> GET /movsrch?name=Toy%20Story
 
 _Headers_:
 * X-Identifier: "CUST"
@@ -63,55 +75,20 @@ Result status: `200`
 {
   "results": [
     {
-      "id": "123",
-      "customer": "CUST",
-      "name": "seattle-warehouse-1",
-      "type": "v1",
-      "presses": 4
+      "id": "tt0114709",
+      "name": "Toy Story",
+      :
+      :
     }
   ]
 }
 ```
 
-### Admin Operations
-
-**GOLIVE**
-
-> POST /admin
-
-_Headers_:
-* X-Identifier: "ADMIN"
-
-Post DATA:
-```json
-  {
-    "customer": "CUST",
-    "id": "123",
-    "name": "seattle-warehouse-2",
-    "live": true
-  }
-```
-
-Response:
-
-Result status: `200`
-
-```
-  {
-    "id": "123",
-    "customer": "CUST",
-    "name": "seattle-warehouse-2",
-    "type": "v1",
-    "live": true,
-    "presses": 0
-  }
-```
-
 ## Submission Notes
 
 ### DOs
-* Fork this repo to your own user space, make it private (now possible with free accounts
-  as well), and add @scorpiodawg and/or @trevorhalvorson as an outside collaborator
+* Fork this repo to your own user space, make it private, add @scorpiodawg, @trevorhalvorson 
+  and @grimkey as outside collaborators
 * Push all changes to the `master` branch of your fork, and let us know when you're ready
   to officially submit. We will fork your repo and review your code. Changes made after that
   will likely be ignored, so please do submit only after you are ready
@@ -124,6 +101,7 @@ Result status: `200`
 * Do include a `SOLUTION.md` with the following:
   * what major design decisions did you have to make
   * why did you choose any frameworks used
+  * why did you pick the database used
   * working [cURL](https://curl.haxx.se) command example(s) to hit your service
   * a references section listing any _significant_ resources used during development
     (significant StackOverflow questions, articles, books, etc. You do not need to
