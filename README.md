@@ -20,8 +20,8 @@ The service is expected to support the following operations:
 ### Admin API
 The service also is expected to support the following "administrative" APIs:
 
-1. NEWMOVIE: create a new movie entry
-2. NEWACTOR: create a new actor entry
+1. NEWMOV: create a new movie entry
+2. NEWACT: create a new actor entry
 
 ## Your Mission
 You are to start with this early version of a rudimentary specification with various details
@@ -32,7 +32,7 @@ You primary tasks are:
 
 * Define and document the APIs for the operations
 * Document the schema for the actor and movie entities. You may use the provided SQL files to 
-  populate your database.
+  populate your database
 * Implement a web service that supports the APIs mentioned above (_customer_ and _admin_)
 
 Also note:
@@ -125,5 +125,9 @@ ensure you have a pleasant experience.
 We are always looking for feedback on the question itself. If, after reading through the
 problem, you have questions on its clarity or suggestions on how to improve it, we're all
 ears! You may leave a file named `FEEDBACK.md` when you submit your code.
+
+## Credits
+Thanks to the original authors of [this](https://github.com/slackhq/backend-interview-prep-questions)
+repository which inspired this exercise.
 
 **We look forward to seeing your work!**
