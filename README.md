@@ -88,7 +88,7 @@ Result status: `200`
 
 ### DOs
 * Fork this repo to your own user space, make it private, add @scorpiodawg, @trevorhalvorson 
-  and @grimkey as outside collaborators
+  and @grimkey as outside collaborators. Click "Use this template" button above for this purpose.
 * Push all changes to the `master` branch of your fork, and let us know when you're ready
   to officially submit. We will fork your repo and review your code. Changes made after that
   will likely be ignored, so please do submit only after you are ready
